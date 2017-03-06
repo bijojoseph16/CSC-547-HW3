@@ -1,0 +1,38 @@
+#cloud-config
+#set Hostname
+hostname: CoreBM1
+#set SSH key
+ssh_authorized_keys:
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDC2bnPASdck9pnkspAEkLbVBzyiIeegKwtwyMyG5bGt2ZEpMx9ln5SbTP4YqDdsRiQwwKRpcoHeNY8TZZOH6EoIgBM4h3cBD3IMUsuolqy2NQLtuT8ZFVROCGX8pylnpWlXBQTECtPkReeUb0Hg0sh0cqADL8c2TO0mI17zHf7VK8cHdGC6pl8vBOHRGCNBos+HU004CJmGFUCrfxBgWaL2S5q3RBtTp1lSOGAT/azYrX1hvqxB7vggWV0lwrtDfTL91CHeClA3HWg8i31snXqpcoCJucMBeWDJYCmI7uZ/7miCumLgmFdebjqgjcMpV62GcajcklS2+fFNfuvz+bf csc573pod5b@csc573pod5b-Precision-WorkStation-T3400
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9mmGXIuCfQIAYEFUwEtTZwOz3fi2bYhvfk0GhGw3dVx/2/7wwbY8Lgb1UF1e5BExwo2pGiaB53m2ZQafR2gLEXlzzTKynsY2RRbzGd+EVuZSwv0Ohd4Y5Av0TJKAiBHbC9uEDjwvOqJ+WhIVKbKHHdMfsh4q7pCIhr5lDJZ0d0oALgyjLD2vYEjXS4vl8XCO9SpW0zczhtD2N0HVIvW05LUe+4TvkuEiz+y37oX5Kxes2qI4EmjZsYr9Cj3oZ1FcKPv8xsQ9TeYcbRN9SIk5/Y9QUEhAYd5qpUHDabxA9ki7ZIe0D2beVbDkf/sCBK2YkPlRJ6DfY2FCSqmigCnQl csc573pod5b@csc573pod5b-Precision-WorkStation-390
+
+coreos:
+ etcd:
+ #Generate a new token for the cluster from 
+ #https://discovery.etcd.io/new
+ discovery: https://discovery.etcd.io/b88abbccb1c2c197d69eccd8a51a50f7
+
+coreos:
+ units:
+ - name: etcd.service
+   command: start
+ - name: fleet.service
+   command: start
+
+coreos:
+ units:
+ - name: eno1
+   runtime: true
+   content: |
+    [Match]
+    Name = eno1
+    [Network]
+    Address = 192.168.0.1/24
+ - name: eno2
+   runtime: true
+   content: |
+    [Match]
+    Name = eno2
+    [Network]
+    Address = 192.168.0.2/24
+
