@@ -21,14 +21,14 @@ coreos:
 
 coreos:
  units:
- - name: eno1
+ - name: eno1.network
    runtime: true
    content: |
     [Match]
     Name = eno1
     [Network]
     Address = 192.168.0.1/24
- - name: eno2
+ - name: eno2.network
    runtime: true
    content: |
     [Match]
