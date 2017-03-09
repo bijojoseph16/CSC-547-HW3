@@ -2,6 +2,7 @@ Add a default gw to the host machine with ubuntu
 #sudo route add default gw 192.168.1.1
 
 To Configure NAT so that the coreOS machines can access the public internet
-On the machine which has wirless device connected.Here <interface-name> is the interface on which the wireless device is connected.
+On the machine which has wirless device connected.Here <interface-name> is the interface
+on which the wireless device is connected.
 #sudo iptables -t nat -A POSTROUTING -o <interface-name> -j MASQUERADE
 #sudo service network-manager restart
