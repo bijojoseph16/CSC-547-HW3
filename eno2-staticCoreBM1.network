@@ -1,5 +1,0 @@
-[Match]
-Name=eno2
-
-[Network]
-Address=192.168.3.2/24
