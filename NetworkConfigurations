@@ -1,5 +1,0 @@
-To Configure NAT so that the coreOS machines can access the public internet
-Issue commands the machine which has wirless device connected.Here <interface-name>
-is the interface on which the wireless device is connected.
-#sudo iptables -t nat -A POSTROUTING -o <interface-name> -j MASQUERADE
-#sudo service network-manager restart
