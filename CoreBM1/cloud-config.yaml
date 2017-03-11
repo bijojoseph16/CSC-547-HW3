@@ -1,0 +1,26 @@
+#cloud-config
+#set Hostname
+hostname: CoreBM2
+#set SSH key
+ssh_authorized_keys:
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD5daCn24slNsbTQlq87jexrFdsanqB/lS1vqtu2Dsg3eGPIxSiKyzgpxgPrkLG6QYAEp6IRdwNDMYN2FIxqiQaBQXs8uxl6Ix3QO6xzbA3GRZ2fLW9te5WuOH+5WS7Kv20jUVwsxHmzxxfGQK/vl3KGtdXgegWoTNgPMjo1E25sG0R+5kUnJBlTya2Nql7GRDQ0GqPcNt//vOU3EIHDZ6AGjwvJ5F1635qNW/M1mgZGOCXlUXDiXFWWNz76z6C0qknmxqN68POP5JuOaA7XXffYcEbtFjPORFtQV474TYKZkXQjF4fVqfxP92uOzkltNt22RgX1/G2KUb/DUZOoS2d csc573pod5b@csc573pod5b-Precision-WorkStation-T3400
+
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnN8ZPC9fp6ZpIaUlKVHlVswWakMflQWvEe/hpSr3n/EJIJfXm3xldIgYGcPv0Fwj5Ohw0tNqyiI6D9j1sIVd/3iUkDPPg1al7ELxoFvpgV1ozYE4HYHq/aVl1bjIohyoRM3rYU7gAcYFsfj1+FlmwaN2wKAujKjEpYAseAJjF6wyA9u1q/uVtLKKiAt2H7izOck0EQB98UmTQkLbGmyCh6ORUeaw/BW9fKbJlwapfogYUrrjk9W1diXnUm0f+Za+lm4LoPMuMIIbp18LhTsSyt7goSDeLHAGlVoCL8xsah0UJd9KtSSSMNRYHB4ERX1yysK9QToEWzLx7qRI+0tD/ csc573pod5b@csc573pod5b-Precision-WorkStation-390
+
+coreos:
+ units:
+ - name: eno1.network
+   runtime: true
+   content: |
+    [Match]
+    Name = eno1
+    [Network]
+    Address = 192.168.1.2/24
+coreos:
+ etcd2:
+  
+ units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
