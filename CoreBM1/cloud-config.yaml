@@ -1,6 +1,6 @@
 #cloud-config
 #set Hostname
-hostname: CoreBM2
+hostname: CoreBM1
 #set SSH key
 ssh_authorized_keys:
 - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD5daCn24slNsbTQlq87jexrFdsanqB/lS1vqtu2Dsg3eGPIxSiKyzgpxgPrkLG6QYAEp6IRdwNDMYN2FIxqiQaBQXs8uxl6Ix3QO6xzbA3GRZ2fLW9te5WuOH+5WS7Kv20jUVwsxHmzxxfGQK/vl3KGtdXgegWoTNgPMjo1E25sG0R+5kUnJBlTya2Nql7GRDQ0GqPcNt//vOU3EIHDZ6AGjwvJ5F1635qNW/M1mgZGOCXlUXDiXFWWNz76z6C0qknmxqN68POP5JuOaA7XXffYcEbtFjPORFtQV474TYKZkXQjF4fVqfxP92uOzkltNt22RgX1/G2KUb/DUZOoS2d csc573pod5b@csc573pod5b-Precision-WorkStation-T3400
