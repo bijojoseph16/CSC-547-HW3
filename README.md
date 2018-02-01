@@ -6,3 +6,6 @@ cloud-config.yaml contains the initial configurations for that machine,
 
 # Hostname: CoreBM2:
 cloud-config.yaml similar to CoreBM1, but here the network id for the interfaces has to be set accordingly.
+
+# Report
+CSC547_Final-project-report_Team6.pdf
